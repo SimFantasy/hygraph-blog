@@ -165,6 +165,11 @@ const RootStyle = createGlobalStyle`
     padding: ${s['space-xl']};
     width: 100%;
   }
+
+  .wmde-markdown {
+    background-color: var(--sim-bg-secondary);
+    color: var(--sim-text-primary);
+  }
 `
 
 export default RootStyle

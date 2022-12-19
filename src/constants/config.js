@@ -1,3 +1,6 @@
+// 站点名称
+export const siteTitle = 'SimFantasy'
+
 // 博客作者ID
 export const authorId = 'clbc9xnpu4auj0bzuq28wy03v'
 

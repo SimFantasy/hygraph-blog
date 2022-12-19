@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",
+    "@uiw/react-markdown-preview": "^4.1.6",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "facepaint": "^1.2.1",

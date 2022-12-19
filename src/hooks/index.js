@@ -1,4 +1,5 @@
 export { default as useTheme } from './useTheme'
+export { default as useTitle } from './useTitle'
 export { default as useHomePostsQuery } from './useHomePostsQuery'
 export { default as useHomePortfoliosQuery } from './useHomePortfoliosQuery'
 export { default as usePostsCategoriesQuery } from './usePostsCategoriesQuery'

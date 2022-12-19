@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { RiCalendar2Line, RiFolder2Line } from 'react-icons/ri'
 import { usePortfolioQuery } from '@/hooks'
-import { Spin } from '@/components'
+import { Spin, MarkdownPreview } from '@/components'
 import { fullDateFormat } from '@/utils'
 import { PortfolioWrap } from './style'
 
@@ -37,7 +37,9 @@ const Portfolio = () => {
             ))}
           </div>
         </div>
-        <div className='portfolio-content'>{content}</div>
+        <div className='portfolio-content'>
+          <MarkdownPreview source={content} />
+        </div>
         <div className='portfolio-btns'>
           <a href={link} target='_blank' className='portfolio-btn' rel='noreferrer'>
             查看

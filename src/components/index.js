@@ -7,3 +7,4 @@ export { default as PortfolioList } from './PortfolioList'
 
 export { default as Pagination } from './Pagination'
 export { default as Spin } from './Spin'
+export { default as MarkdownPreview } from './MarkdownPreview'

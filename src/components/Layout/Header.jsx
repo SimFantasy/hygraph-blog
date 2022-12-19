@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { RiTyphoonFill, RiMoonLine, RiSunLine } from 'react-icons/ri'
+import { RiTyphoonFill } from 'react-icons/ri'
 import cx from 'clsx'
-import { useTheme } from '@/hooks'
-import { Author } from '@/components'
+import { useTheme, useTitle } from '@/hooks'
+import { siteTitle } from '@/constants/config'
 import { HeaderWrap } from './style'
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme()
+  useTitle(siteTitle)
   return (
     <HeaderWrap>
       <div className='container header-container'>

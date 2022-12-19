@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiCalendar2Line, RiFolder2Line } from 'react-icons/ri'
 import { usePostQuery } from '@/hooks'
-import { Spin } from '@/components'
+import { Spin, MarkdownPreview } from '@/components'
 import { fullDateFormat } from '@/utils'
 import { PostWrap } from './style'
 
@@ -37,7 +37,9 @@ const Post = () => {
             ))}
           </div>
         </div>
-        <div className='post-centent'>{content.markdown}</div>
+        <div className='post-centent'>
+          <MarkdownPreview source={content.markdown} />
+        </div>
         <div className='post-tags'>
           {tags.map(tag => (
             <div className='tag-item' key={tag}>

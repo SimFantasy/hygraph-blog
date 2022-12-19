@@ -1,6 +1,6 @@
 import React from 'react'
 import { usePageQuery } from '@/hooks'
-import { Spin } from '@/components'
+import { Spin, MarkdownPreview } from '@/components'
 import { SinglePageWrap } from './style'
 
 const SinglePage = () => {
@@ -24,7 +24,9 @@ const SinglePage = () => {
         <div className='titlebar'>
           <div className='title'>{title}</div>
         </div>
-        <div className='single-page-content'>{content}</div>
+        <div className='single-page-content'>
+          <MarkdownPreview source={content} />
+        </div>
         <div className='divider'></div>
       </div>
     </SinglePageWrap>
