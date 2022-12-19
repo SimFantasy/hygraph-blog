@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useState, useCallback, memo } from 'react'
 import { NavLink } from 'react-router-dom'
-import { RiTyphoonFill } from 'react-icons/ri'
+import { RiTyphoonFill, RiMenuLine, RiCloseLine } from 'react-icons/ri'
 import cx from 'clsx'
-import { useTheme, useTitle } from '@/hooks'
+import { useTheme, useTitle, useBodyScrollLock } from '@/hooks'
 import { siteTitle } from '@/constants/config'
 import { HeaderWrap } from './style'
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme()
+  const [isNavShow, setIsNavShow] = useState(false)
   useTitle(siteTitle)
+  const [lockState, toggleLock] = useBodyScrollLock()
+  const handleToggleNav = useCallback(() => {
+    setIsNavShow(!isNavShow)
+    toggleLock()
+  })
+  const handleClickNavLink = () => {
+    setIsNavShow(false)
+    toggleLock()
+  }
+  console.log('isNavShow', isNavShow)
+  console.log('lockState', lockState)
   return (
     <HeaderWrap>
       <div className='container header-container'>
@@ -31,9 +43,31 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={cx('color-mode', { dark: theme === 'dark' })} onClick={toggleTheme}></div>
+
+        <div className='m-navs'>
+          <div className='m-nav-btn' onClick={handleToggleNav}>
+            {isNavShow ? <RiCloseLine /> : <RiMenuLine />}
+          </div>
+          <div className={cx('m-nav-container', { active: isNavShow })}>
+            <div className='m-nav-links'>
+              <NavLink to='/home' className='nav-item' onClick={handleClickNavLink}>
+                Home
+              </NavLink>
+              <NavLink to='/posts' className='nav-item' onClick={handleClickNavLink}>
+                Post
+              </NavLink>
+              <NavLink to='/portfolios' className='nav-item' onClick={handleClickNavLink}>
+                Portfolio
+              </NavLink>
+              <NavLink to='/about' className='nav-item' onClick={handleClickNavLink}>
+                About
+              </NavLink>
+            </div>
+          </div>
+        </div>
       </div>
     </HeaderWrap>
   )
 }
 
-export default Header
+export default memo(Header)

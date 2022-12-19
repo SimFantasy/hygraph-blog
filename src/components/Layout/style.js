@@ -71,6 +71,64 @@ export const HeaderWrap = styled.header`
         background-position: 100%;
       }
     }
+
+    .m-navs {
+      display: none;
+    }
+
+    @media (max-width: ${s['mobile-width']}) {
+      .navs {
+        display: none;
+      }
+
+      .logo {
+        flex: 1;
+      }
+
+      .m-navs {
+        flex: 0 0 auto;
+        ${s.flex('flex-end', 'center')};
+        width: 32px;
+        height: ${s['header-height']};
+        cursor: pointer;
+
+        .m-nav-btn {
+          ${s.flex('center', 'center')};
+          font-size: 24px;
+        }
+
+        .m-nav-container {
+          display: none;
+          transition: top 2s ease;
+
+          &.active {
+            position: fixed;
+            top: ${s['header-height']};
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            ${s.flex('center', 'center')};
+            background-color: var(--sim-bg-secondary);
+          }
+
+          .m-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: ${s['space-lg']};
+
+            .nav-item {
+              ${s.flex('center', 'center')};
+
+              &.active {
+                color: var(--sim-title);
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -81,7 +139,6 @@ export const FooterWrap = styled.footer`
   .footer-container {
     ${s.flex('space-between', 'center')};
     height: 100%;
-
     font-size: 14px;
     color: var(--sim-text-secondary);
   }

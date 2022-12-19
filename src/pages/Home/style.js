@@ -12,5 +12,9 @@ export const HomeWrap = styled.div`
 
   .portfolios-group {
     ${s.gridCols(3, '24px')};
+
+    @media (max-width: ${s['mobile-width']}) {
+      ${s.gridCols(1, '24px')};
+    }
   }
 `
